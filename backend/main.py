@@ -155,7 +155,7 @@ def evaluate(expression: str, mode: str = "deg") -> float:
         .replace(",", "")
         .strip()
     )
-    if not expr:
+    if not expr: #dkjvk
         raise CalcError("Empty expression")
 
     # Factorial: 5! -> fact(5), (2+1)! -> fact((2+1))
