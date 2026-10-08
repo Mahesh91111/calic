@@ -1,0 +1,279 @@
+:root {
+  --bg: #0f1220;
+  --panel: #181c30;
+  --panel-2: #20253f;
+  --text: #eef0fa;
+  --muted: #8b92b8;
+  --accent: #6c7bff;
+  --accent-2: #ff9f43;
+  --danger: #ff5c7a;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 0%, #1b2040, var(--bg) 60%);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px 16px;
+  flex-wrap: wrap;
+}
+
+/* ---------- calculator ---------- */
+
+.calc {
+  width: 360px;
+  background: var(--panel);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.calc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calc-top h1 {
+  font-size: 16px;
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.mode {
+  background: var(--panel-2);
+  color: var(--accent);
+  border: 1px solid #2f3560;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.display {
+  background: #0d1020;
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.expr {
+  color: var(--muted);
+  font-size: 20px;
+  word-break: break-all;
+  text-align: right;
+}
+
+.res {
+  font-size: 38px;
+  font-weight: 600;
+  min-height: 48px;
+  word-break: break-all;
+  text-align: right;
+}
+
+.res.err {
+  color: var(--danger);
+  font-size: 20px;
+  padding-top: 14px;
+}
+
+.sci {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.key {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 0;
+  font-size: 18px;
+  color: var(--text);
+  background: var(--panel-2);
+  transition: transform 0.05s, filter 0.15s;
+}
+
+.key:hover {
+  filter: brightness(1.25);
+}
+
+.key:active {
+  transform: scale(0.95);
+}
+
+.key.fn {
+  font-size: 14px;
+  padding: 10px 0;
+  color: var(--accent);
+  background: #1b2040;
+}
+
+.key.op {
+  color: var(--accent-2);
+  font-size: 22px;
+}
+
+.key.danger {
+  color: var(--danger);
+}
+
+.key.equals {
+  background: var(--accent);
+  color: #fff;
+  font-size: 24px;
+}
+
+/* ---------- history ---------- */
+
+.history {
+  width: 320px;
+  max-height: 640px;
+  overflow-y: auto;
+  background: var(--panel);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.history-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.history h2 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.link:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.banner {
+  background: #3a1d2b;
+  color: #ffb3c2;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.banner code {
+  background: #2a1320;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history li {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: var(--panel-2);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text);
+  text-align: right;
+}
+
+.item:hover {
+  filter: brightness(1.2);
+}
+
+.item-expr {
+  color: var(--muted);
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.item-res {
+  font-size: 18px;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.del {
+  width: 30px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.del:hover {
+  color: var(--danger);
+  background: var(--panel-2);
+}
+
+@media (max-width: 420px) {
+  .calc,
+  .history {
+    width: 100%;
+  }
+}
